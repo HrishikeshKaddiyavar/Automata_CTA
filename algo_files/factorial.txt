@@ -1,0 +1,10 @@
+START
+READ "Enter n: ", n
+f = 1
+i = 1
+WHILE i <= n DO
+    f = f * i
+    i = i + 1
+ENDWHILE
+PRINT "Factorial of ", n, " is ", f
+STOP

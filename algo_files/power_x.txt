@@ -1,0 +1,11 @@
+START
+READ "Enter base: ", x
+READ "Enter exponent: ", n
+result = 1
+i = 1
+WHILE i <= n DO
+    result = result * x
+    i = i + 1
+ENDWHILE
+PRINT "Result is ", result
+STOP

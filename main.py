@@ -1,4 +1,4 @@
-import re
+import re, os
 
 class AlgoToCConverter:
     def __init__(self):
@@ -210,24 +210,28 @@ class AlgoToCConverter:
 
 # ---------------- TEST ----------------
 if __name__ == "__main__":
-    algo_input = """
-    START
-    READ "Enter n: ", n
-    f = 1
-    i = 1
-    WHILE i <= n DO
-        f = f * i
-        i = i + 1
-    ENDWHILE
-    PRINT "Factorial of ", n, " is ", f
-    STOP
-    """
-
-    converter = AlgoToCConverter()
+    file_loc = input("Enter the path to the algorithm file: ").strip()
+    if not os.path.exists(file_loc):
+        print("Error: File not found!")
+        exit()
+    input_file = file_loc
+    output_file = "output.c"
 
     try:
-        output = converter.convert(algo_input)
-        print("Generated C Code:\n")
-        print(output)
+        # Read algorithm from file
+        with open(input_file, "r") as f:
+            algo_input = f.read()
+
+        converter = AlgoToCConverter()
+        c_code = converter.convert(algo_input)
+
+        # Save generated C code
+        with open(output_file, "w") as f:
+            f.write(c_code)
+
+        print(f"C code successfully generated and saved to '{output_file}'")
+
+    except FileNotFoundError:
+        print(f"Error: '{input_file}' not found.")
     except Exception as e:
         print("Error:", e)

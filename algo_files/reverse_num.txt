@@ -1,0 +1,12 @@
+START
+READ "Enter number: ", n
+rev = 0
+
+WHILE n > 0 DO
+    digit = n % 10
+    rev = rev * 10 + digit
+    n = n / 10
+ENDWHILE
+
+PRINT "Reversed number is ", rev
+STOP

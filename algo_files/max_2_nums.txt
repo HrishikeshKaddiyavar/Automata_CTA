@@ -1,0 +1,9 @@
+START
+READ "Enter a: ", a
+READ "Enter b: ", b
+IF a > b THEN
+    PRINT "Max is ", a
+ELSE
+    PRINT "Max is ", b
+ENDIF
+STOP

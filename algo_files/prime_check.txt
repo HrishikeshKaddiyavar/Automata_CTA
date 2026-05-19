@@ -1,0 +1,18 @@
+START
+READ "Enter number: ", n
+i = 2
+flag = 1
+
+WHILE i < n DO
+    IF n % i == 0 THEN
+        flag = 0
+    ENDIF
+    i = i + 1
+ENDWHILE
+
+IF flag == 1 THEN
+    PRINT "Prime Number"
+ELSE
+    PRINT "Not Prime"
+ENDIF
+STOP
